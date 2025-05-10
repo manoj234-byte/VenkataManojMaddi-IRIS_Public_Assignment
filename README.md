@@ -35,11 +35,16 @@ The goal of this application is to process an Excel workbook (`capbudg.xls`) and
 
 Make sure Python 3.13+ is installed. Then, clone this repository and set up a virtual environment.
 
-```bash
+``bash
+
 git clone https://github.com/yourusername/fastapi-excel-api.git
+
 cd IRIS_Public_Assignment
+
 python -m venv .venv
+
 source .venv/bin/activate  # On Windows use .venv\Scripts\activate
+
 pip install -r requirements.txt
 ````
 
