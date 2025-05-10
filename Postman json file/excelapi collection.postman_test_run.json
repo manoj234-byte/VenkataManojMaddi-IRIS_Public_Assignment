@@ -1,0 +1,88 @@
+{
+	"id": "81f87e30-2ed3-4e13-8e2c-038fd3199d7e",
+	"name": "excelapi collection",
+	"timestamp": "2025-05-10T06:40:04.813Z",
+	"collection_id": "44831873-fcc0f591-f785-4c6b-bd4b-e3209b228715",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-05-10T06:40:04.040Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "647140e1-36c6-4fa4-9998-20449ff9eedd",
+			"name": "http://127.0.0.1:8000/table?table=CapBudgWS",
+			"url": "http://127.0.0.1:8000/table?table=CapBudgWS",
+			"time": 21,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				21
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "206bbcd9-6c72-4899-ad4a-37289d5fda62",
+			"name": "http://127.0.0.1:8000/tables",
+			"url": "http://127.0.0.1:8000/tables",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				9
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f2390009-d4dd-4979-8a6c-e7a3afe3b220",
+			"name": "New Request",
+			"url": "http://127.0.0.1:8000/sum?table=CapBudgWS&row=Tax Credit (if any )=",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 36,
+	"collection": {
+		"requests": [
+			{
+				"id": "647140e1-36c6-4fa4-9998-20449ff9eedd",
+				"method": "GET"
+			},
+			{
+				"id": "206bbcd9-6c72-4899-ad4a-37289d5fda62",
+				"method": "GET"
+			},
+			{
+				"id": "f2390009-d4dd-4979-8a6c-e7a3afe3b220",
+				"method": "GET"
+			}
+		]
+	}
+}
