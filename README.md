@@ -1,14 +1,12 @@
 **FastAPI Excel Processor Assignment**. It's structured and easy for reviewers to understand.
-
 ---
 
 ````markdown
 # FastAPI Excel Processor
 
-A lightweight and efficient API built using FastAPI that allows users to read, explore, and compute values from an Excel sheet. This project was developed as part of an assessment to demonstrate practical API development skills.
+This project is a lightweight and practical API built with FastAPI that enables users to interact with and extract meaningful insights from data stored in an Excel spreadsheet. Designed as part of a technical assessment, the goal was to demonstrate hands-on experience with backend API development, structured data parsing, and RESTful design practices.
 
 ---
-
 ##  Project Objective
 
 The goal of this application is to process an Excel workbook (`capbudg.xls`) and expose RESTful endpoints that let users:
@@ -56,8 +54,6 @@ Visit the interactive docs at:
 
 ---
 
-
-
 ---
 
 ## API Endpoints
@@ -96,7 +92,6 @@ Returns the row names from a specified sheet.
   "rows": [
     "Initial Investment=",
     "Tax Credit (if any )=",
-    ...
   ]
 }
 ```
@@ -175,7 +170,6 @@ pip install -r requirements.txt
 
 ##  Author
 
-**Your Name**
 GitHub: [ manoj234-byte ](https://github.com/manoj234-byte)
 Email: [manojvenkata234@gmail.com]
 
