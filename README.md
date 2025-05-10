@@ -1,73 +1,76 @@
-**FastAPI Excel Processor Assignment**. It's structured and easy for reviewers to understand.
----
-
-````markdown
 # FastAPI Excel Processor
 
-This project is a lightweight and practical API built with FastAPI that enables users to interact with and extract meaningful insights from data stored in an Excel spreadsheet. Designed as part of a technical assessment, the goal was to demonstrate hands-on experience with backend API development, structured data parsing, and RESTful design practices.
+This is a simple and practical API built using FastAPI. It lets you pull useful data from an Excel spreadsheet — things like listing sheets, grabbing row labels, and calculating row totals. I built this as part of a technical assignment to show practical backend skills using FastAPI and some basic data parsing with Pandas.
 
 ---
-##  Project Objective
 
-The goal of this application is to process an Excel workbook (`capbudg.xls`) and expose RESTful endpoints that let users:
+## Project Objective
 
-- List available tables (sheets) in the Excel file
-- Retrieve row labels from a selected table
-- Calculate the sum of numerical values from a specific row
+The main idea here was to work with an Excel file (`capbudg.xls`) and expose a few useful endpoints to:
+
+- List all sheet names in the Excel file
+- Get the row labels (from the first column) in a specific sheet
+- Calculate the total of numeric values in a particular row
 
 ---
-##  Project Structure
+
+## Project Structure
 
 ```
 .
 ├── IRIS_Public_Assignment/
 │   ├── main.py                 
-│   ├── excel_handler.py       
-│── └── Data/
-│       └── capbudg.xls
+│   ├── excel_handler.py        
+│   └── Data/
+│       └── capbudg.xls         
 ├── requirements.txt
 ├── README.md
-└── postman collection json
+└── postman collection.json
 ```
-##  Getting Started
 
-### Prerequisites
+---
 
-Make sure Python 3.13+ is installed. Then, clone this repository and set up a virtual environment.
+## Getting Started
 
-``bash
+### Requirements
 
+You'll need Python 3.13 or you can choose intepreter from 3.0 versions . After cloning the repo, it's a good idea to use a virtual environment.
+
+```bash
 git clone https://github.com/yourusername/fastapi-excel-api.git
-
 cd IRIS_Public_Assignment
 
 python -m venv .venv
-
-source .venv/bin/activate  # use .venv\Scripts\activate
+source .venv\Scripts\activate
 
 pip install -r requirements.txt
-````
+```
+
+---
 
 ### Run the API
+
+Start the FastAPI server with:
 
 ```bash
 uvicorn IRIS_Public_Assignment.main:app --reload
 ```
 
-Visit the interactive docs at:
- `http://127.0.0.1:8000/docs`
+Once it’s up, you can check the auto-generated docs here:
 
----
+```
+http://127.0.0.1:8000/docs
+```
 
 ---
 
 ## API Endpoints
 
-### 1. `GET  http://127.0.0.1:8000/tables`
+### 1. `GET /tables`
 
-Returns a list of all available sheet names  in the Excel file.
+Returns a list of all sheet names from the Excel file.
 
-#### Example Response
+**Example Response:**
 
 ```json
 {
@@ -77,46 +80,50 @@ Returns a list of all available sheet names  in the Excel file.
 
 ---
 
-### 2. `GET http://127.0.0.1:8000/table`
+### 2. `GET /table`
 
-Returns the row names from a specified sheet.
+Returns the row names (first column values) from a specific sheet.
 
-#### Query Parameter
+**Query Parameter:**
 
-* `table` – Name of the sheet
+- `table` – Name of the sheet
 
-#### Example Request
+**Example Request:**
 
-`GET http://127.0.0.1:8000/table?table=CapBudgWS`
+```
+GET /table?table=CapBudgWS
+```
 
-#### Example Response
+**Example Response:**
 
 ```json
 {
   "sheet": "CapBudgWS",
   "rows": [
     "Initial Investment=",
-    "Tax Credit (if any )=",
+    "Tax Credit (if any )="
   ]
 }
 ```
 
 ---
 
-### 3. `GET http://127.0.0.1:8000/sum`
+### 3. `GET /sum`
 
-Calculates the sum of numeric values in a specified row of a given table.
+Returns the total of all numeric values in a specified row.
 
-#### Query Parameters
+**Query Parameters:**
 
-* `table` – Sheet name
-* `row` – Label of the row
+- `table` – Name of the sheet
+- `row` – Label of the row
 
-#### Example Request
+**Example Request:**
 
-`GET http://127.0.0.1:8000 /sum?table=CapBudgWS&row=Tax Credit (if any )=`
+```
+GET /sum?table=CapBudgWS&row=Tax Credit (if any )=
+```
 
-#### Example Response
+**Example Response:**
 
 ```json
 {
@@ -130,42 +137,40 @@ Calculates the sum of numeric values in a specified row of a given table.
 
 ## Testing with Postman
 
-A Postman collection is included in this repo:
- `Postman json file`
-To use:
+There’s a Postman collection included so you can test the endpoints quickly:
 
 1. Open Postman.
-2. Click **Import** → Upload the `.json` file.
-3. Send requests using the saved collection.
+2. Click **Import** and upload the `.json` file.
+3. Send test requests using the collection.
 
 ---
 
-##  Insights
+## Notes & Improvements
 
-### Potential Improvements
+### Things I’d Like to Add Later
 
-* Add a file upload endpoint to support dynamic Excel uploads.
-* Extend support for `.xlsx` and `.csv` formats.
-* Implement pagination and sorting for large sheets.
-* Include a simple frontend UI for non-technical users.
+- An endpoint for uploading Excel files, so users aren’t stuck with the default one.
+- Support for `.xlsx` and maybe even `.csv`.
+- Pagination for larger sheets.
+- A small frontend to let non-devs interact with the data.
 
-### Edge Cases Not Covered
+### Known Limitations
 
-* Completely empty sheets or rows.
-* Mixed data types in a row (strings and numbers).
-* Sheets with merged cells or complex formatting.
+- It doesn’t handle empty or merged rows well.
+- Rows with mixed data (like numbers and text) might not sum cleanly.
+- Fancy formatting in Excel isn’t handled — it expects plain, simple data.
 
 ---
 
 ## Dependencies
 
-* fastapi
-* uvicorn
-* pandas
-* openpyxl
-* xlrd
+- fastapi
+- uvicorn
+- pandas
+- openpyxl
+- xlrd
 
-Install via:
+Install them all via:
 
 ```bash
 pip install -r requirements.txt
@@ -173,9 +178,7 @@ pip install -r requirements.txt
 
 ---
 
-##  Author
+## Author
 
-GitHub: [ manoj234-byte ](https://github.com/manoj234-byte)
-Email: [manojvenkata234@gmail.com]
-
----
+GitHub: [manoj234-byte](https://github.com/manoj234-byte)  
+Email: manojvenkata234@gmail.com
