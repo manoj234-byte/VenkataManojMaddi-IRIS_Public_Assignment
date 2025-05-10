@@ -11,7 +11,7 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-excel = Excel_process("C:/Users/manoj/OneDrive/Desktop/Assignment/IRIS_Public_Assignment/Data/capbudg.xls")
+excel = Excel_process("Data/capbudg.xls")
 
 @app.get("/tables")
 def list_sheets():
